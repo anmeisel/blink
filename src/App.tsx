@@ -15,7 +15,7 @@ export default function App() {
     setItems(prevItems => {
         const newItem: Item = {
           id: Math.random(),
-          info: 'Api info',
+          info: 'Loading...',
         }
         return [...prevItems, newItem]
       })
