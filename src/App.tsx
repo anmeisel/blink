@@ -3,7 +3,6 @@ import itemsImg from './assets/original_05bed5c6fbee694115da8ad57d7c06a5.png'
 import Header from './components/Header.tsx'
 import SomeList from './components/SomeList.tsx'
 
-
 export type Item = {
   info: string
   id: number
