@@ -1,5 +1,7 @@
 import { type PropsWithChildren } from "react"
 import FetchData from './FetchData.tsx'
+import FetchGifs from './FetchGifs.tsx'
+
 
 type ItemProps = PropsWithChildren<{ 
     id: number;
@@ -14,7 +16,8 @@ export default function Item({ info, id, children, onDelete }: ItemProps) {
         <div>
             <h2>{info}</h2>
             {children}
-            <FetchData/>
+            {/* <FetchData/> */}
+            <FetchGifs/>
         </div>
         <button onClick={() => onDelete(id)}>Delete</button>
     </article>
