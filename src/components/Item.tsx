@@ -1,5 +1,5 @@
 import { type PropsWithChildren } from "react"
-import FetchData from './FetchData.tsx'
+import FetchNews from './FetchNews.tsx'
 import FetchGifs from './FetchGifs.tsx'
 
 
@@ -16,8 +16,8 @@ export default function Item({ info, id, children, onDelete }: ItemProps) {
         <div>
             <h2>{info}</h2>
             {children}
-            {/* <FetchData/> */}
-            <FetchGifs/>
+            <FetchNews/>
+            {/* <FetchGifs/> */}
         </div>
         <button onClick={() => onDelete(id)}>Delete</button>
     </article>

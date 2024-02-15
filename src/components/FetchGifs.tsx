@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { SetStateAction, useEffect, useState } from 'react'
 import { GiphyFetch } from '@giphy/js-fetch-api'
 import { useAsync } from "react-async-hook"
 import {
@@ -33,7 +33,7 @@ const gf = new GiphyFetch('bvWogBDRALOdICcvDhJPS5XVxe50qs7O')
           onGifClick={onGifClick}
           fetchGifs={fetchGifs}
           width={width}
-          columns={3}
+          columns={5}
           gutter={6}
         />
         <ResizeObserver
@@ -49,7 +49,7 @@ const gf = new GiphyFetch('bvWogBDRALOdICcvDhJPS5XVxe50qs7O')
     return (
         <>
           <GridDemo
-            onGifClick={(gif, e) => {
+            onGifClick={(gif: SetStateAction<undefined>, e: { preventDefault: () => void; }) => {
                 console.log("gif", gif);
                 e.preventDefault();
                 setModalGif(gif);

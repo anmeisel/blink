@@ -14,6 +14,7 @@
     "@giphy/react-components": "^9.2.3",
     "axios": "^1.6.7",
     "currentsapi": "^0.1.0",
+    "newsapi": "^2.4.1",
     "qs": "^6.11.2",
     "react": "^18.2.0",
     "react-async-hook": "^4.0.0",
