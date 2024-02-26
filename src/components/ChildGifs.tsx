@@ -17,13 +17,6 @@ const gf = new GiphyFetch('bvWogBDRALOdICcvDhJPS5XVxe50qs7O')
 const gifsall: IGif[][] = []
 var gifsconcatenated: any[] = [];
 
-// type dataType = {
-//     userId: number;
-//     id: number;
-//     url: string;
-//     body: string;
-//     onDelete: (id: number) => void;
-//  }
 async function getgiffs({parentToChildItem}){
 
     for(const keyarray of parentToChildItem){
@@ -36,36 +29,16 @@ async function getgiffs({parentToChildItem}){
 }
 export default function ChildGif({parentToChildItem}) {
 
-    // const [data, setData] = useState<IGif[]>();
-
-    // useEffect(() => {
-    //const { data: gifs } = await gf.search("world", { sort: 'relevant', lang: 'es', limit: 5, type: 'gifs' })//.then(result => result.data).then(alldata => setData(alldata)).catch(error => console.log(error.message))
-    // }, [])
-
-    // for(const keyarray of parentToChildItem){
-    //     for(const key of keyarray){
-    //         console.log(key);
-    //         const category = key;
-    //         useEffect(() => {
-    //             gf.search(category, { sort: 'relevant', lang: 'es', limit: 5, type: 'gifs' }).then(result => result.data).then(alldata => setData(alldata)).catch(error => console.log(error.message))
-    //         }, [])
-    //     }
-    // }
     if(gifsall.length === 0){
         getgiffs({parentToChildItem});
     }
-    // const giffsconcat = [].concat.apply([], gifsall);
+
     for(var i = 0; i < gifsall.length; i++)
     {
         gifsconcatenated = gifsconcatenated.concat(gifsall[i]);
     }
     console.log(gifsconcatenated.length);
     gifsconcatenated = _.uniq(gifsconcatenated, 'id');
-
-
-    // data.map(info => (
-    //     console.log(info)
-    // ))
 
     return (
         <div>
