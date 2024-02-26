@@ -44,7 +44,7 @@ export default function ChildGif({parentToChildItem}) {
         <div>
             {/* {parentToChildItem} */}
             {gifsconcatenated.map(info => (
-                <iframe key={info.id} src={info.embed_url}  style={{width: 100 + 'px', height: 100 + 'px'}}></iframe>
+                <iframe key={info.id} src={info.embed_url}  style={{width: 100 + 'px', height: 100 + 'px'}} frameBorder={0}></iframe>
 
             ))}
         </div>
