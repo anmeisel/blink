@@ -4,6 +4,7 @@ import FetchNews from './FetchNews.tsx'
 import FetchGifs from './FetchGifs.tsx'
 import FetchData from './FetchData.tsx'
 import ChildItem from './ChildItem.tsx';
+import ChildGifs from './ChildGifs.tsx';
 const keyword_extractor = require("keyword-extractor");
 
 
@@ -34,6 +35,7 @@ export default function Item({ info, id, children, onDelete }: ItemProps) {
 
     if(keywords.length === 0){
         data.forEach(function(obj) { 
+            console.log(obj.image);
             const extraction_result = keyword_extractor.extract(obj.description,{
                 language:"english",
                 remove_digits: true,
@@ -46,7 +48,7 @@ export default function Item({ info, id, children, onDelete }: ItemProps) {
     }
 
 
-    console.log(keywords);
+    // console.log(keywords);
 
     const parentToChildItem = () => {
         if(keywords.length !== 0){
@@ -58,7 +60,13 @@ export default function Item({ info, id, children, onDelete }: ItemProps) {
         <div>
             <h2>{info}</h2>
             {children}
+            <article>
+                {data.map(info => (
+                <div key={info.publishedAt}>{info.title}</div>
+            ))}
+            </article>
             <ChildItem parentToChildItem={keywords}/>
+            <ChildGifs parentToChildItem={keywords}/>
             {/* <FetchNews/> */}
             {/* <FetchGifs/> */}
         </div>
