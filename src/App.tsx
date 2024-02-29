@@ -4,7 +4,6 @@ import Header from './components/Header.tsx'
 import SomeList from './components/SomeList.tsx'
 
 export type Item = {
-  info: string
   id: number
 }
 
@@ -15,7 +14,6 @@ export default function App() {
     setItems(prevItems => {
         const newItem: Item = {
           id: Math.random(),
-          info: 'Loading...',
         }
         return [...prevItems, newItem]
       })
