@@ -17,7 +17,19 @@ const gf = new GiphyFetch('bvWogBDRALOdICcvDhJPS5XVxe50qs7O')
 const gifsall: IGif[][] = []
 var gifsconcatenated: any[] = [];
 
-async function getgiffs({parentToChildItem}){
+type dataType = {
+    userId: number;
+    id: number;
+    title: string;
+    body: string;
+    onDelete: (id: number) => void;
+ }
+
+interface Props {
+    parentToChildItem: dataType;
+}
+
+async function getgiffs({parentToChildItem}: Props){
 
     for(const keyarray of parentToChildItem){
         for(const key of keyarray){
@@ -27,7 +39,7 @@ async function getgiffs({parentToChildItem}){
         }
     }
 }
-export default function ChildGif({parentToChildItem}) {
+export default function ChildGif({parentToChildItem}: Props) {
 
     if(gifsall.length === 0){
         getgiffs({parentToChildItem});

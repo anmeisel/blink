@@ -1,6 +1,6 @@
+import './App.css';
 import { useState } from 'react'
-import itemsImg from './assets/original_05bed5c6fbee694115da8ad57d7c06a5.png'
-import Header from './components/Header.tsx'
+import binkGif from './assets/output-onlinegiftools.gif'
 import SomeList from './components/SomeList.tsx'
 
 export type Item = {
@@ -9,8 +9,20 @@ export type Item = {
 
 export default function App() {
   const [items, setItems] = useState<Item[]>([])
+  const [gifPlayed, setGifPlayed] = useState(false);
 
   function handleAddItem() {
+    if (!gifPlayed) {
+      const blinkElement = document.getElementById('blink') as HTMLImageElement;
+      if (blinkElement) {
+        blinkElement.onload = () => {
+          blinkElement.src = binkGif;
+          setGifPlayed(true);
+        };
+        blinkElement.src = binkGif; 
+      }
+    }
+
     setItems(prevItems => {
         const newItem: Item = {
           id: Math.random(),
@@ -20,17 +32,23 @@ export default function App() {
     }
 
     function handleDeleteItem(id: number) {
+      if (!gifPlayed) {
+        const blinkElement = document.getElementById('blink') as HTMLImageElement;
+        if (blinkElement) {
+          blinkElement.onload = () => {
+            blinkElement.src = binkGif;
+            setGifPlayed(true);
+          };
+          blinkElement.src = binkGif; 
+        }
+      }
+
       setItems(prevItems => prevItems.filter((item) => item.id !== id))
     }
 
   return (
     <main>
-      <Header 
-      image={{src: itemsImg, alt: "A list of blinks"}}
-      >
-      <h1>Information</h1>
-      </Header>
-      <button onClick={handleAddItem}>Add info</button>
+      Blink to update: <button className="blink-img" onClick={handleAddItem}><img id="blink" src={binkGif} alt="Blinking eye gif"></img></button>
       <SomeList items={items} onDeleteItem={handleDeleteItem}/>
     </main>
   )
