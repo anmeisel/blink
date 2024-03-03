@@ -48,7 +48,10 @@ export default function App() {
 
   return (
     <main>
-      Blink to update: <button className="blink-img" onClick={handleAddItem}><img id="blink" src={binkGif} alt="Blinking eye gif"></img></button>
+      <div className="blink-button">
+        <div className="title">Blink to update: </div>
+        <button className="blink-img" onClick={handleAddItem}><img id="blink" src={binkGif} alt="Blinking eye gif"></img></button>
+      </div>
       <SomeList items={items} onDeleteItem={handleDeleteItem}/>
     </main>
   )

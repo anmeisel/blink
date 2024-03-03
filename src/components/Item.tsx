@@ -58,12 +58,12 @@ export default function Item({ info, id, children, onDelete }: ItemProps) {
     return (
     <article>
         <div>
-            <h2>{info}</h2>
-            {children}
+            {/* <h2>{info}</h2>
+            {children} */}
             <article>
                 {data.map(info => (
                 <div key={info.publishedAt}>{info.title}</div>
-            ))}
+                ))}
             </article>
             <ChildItem parentToChildItem={keywords}/>
             <ChildGifs parentToChildItem={keywords}/>
